@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.deploy.demo.repository.AuthorityMapper">
+	
+	<!-- 新增資料 -->
+	<insert id="insertAuthority" parameterType="com.deploy.demo.entity.AuthorityEntity" useGeneratedKeys="true" keyProperty="id">
+        INSERT deploy_authority(
+        	NAME,CREATE_TIME,CREATE_USER
+        ) 
+        VALUES(
+        	#{name},#{crDateTime},#{crUser}
+        );
+    </insert>
+	
+	<!-- 查詢所有資料 -->
+	<select id="listAuthority" resultType="com.deploy.demo.entity.AuthorityEntity">
+			SELECT 
+				* 
+			FROM 
+				deploy_authority;
+	</select>
+	
+	<!-- 查詢使用者第一筆資料 -->
+	<select id="findByAuthorityId" parameterType="int" resultType="com.deploy.demo.entity.AuthorityEntity">
+			SELECT
+				* 
+			FROM 
+				deploy_authority
+			WHERE
+				ID = #{id};
+	</select>
+	
+	<!-- 更新資料 -->
+	<update id="updateAuthority" parameterType="com.deploy.demo.entity.AuthorityEntity">
+        	UPDATE
+        		deploy_authority
+        	SET
+        		NAME = #{name},UPDATE_TIME = #{upDateTime}, UPDATE_USER = #{upUser}
+        	WHERE
+        		ID = #{id};
+    </update>
+    
+    <!-- 刪除資料 -->
+    <delete id="deleteAuthority" parameterType="int">
+        DELETE FROM 
+        	deploy_authority 
+        WHERE 
+        	ID = #{id};
+    </delete>
+
+
+</mapper>
