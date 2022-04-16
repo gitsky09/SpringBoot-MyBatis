@@ -23,7 +23,7 @@ public interface UserMapper {
 	@Update("UPDATE deploy_users SET NAME = #{name},ACCOUNT = #{account},PASSWORD = #{password},PHONE = #{phone},UPDATE_TIME = #{upDateTime}, UPDATE_USER = #{upUser} WHERE ID = #{id}")
 	public Integer updateUser(UserEntity user);
 	
-	@Select("SELECT deploy_users.account,deploy_users.password FROM deploy_users WHERE ACCOUNT = #{account}")
+	@Select("SELECT * FROM deploy_users WHERE ACCOUNT = #{account}")
 	UserEntity findByAccount(String account);
 	
 }
