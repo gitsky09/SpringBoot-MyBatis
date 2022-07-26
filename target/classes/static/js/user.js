@@ -54,7 +54,7 @@ $(() => {
 	function verifyAccountDuplicate() {
 		var result = false
 		$.ajax({
-            url: "/api/account",
+            url: "/api/userAccount",
             type: "GET",
             cache:false,
 			async:false,

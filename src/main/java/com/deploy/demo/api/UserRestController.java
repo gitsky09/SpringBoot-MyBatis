@@ -12,7 +12,7 @@ import com.deploy.demo.service.UserService;
 import com.deploy.demo.utils.JsonResult;
 
 @RestController
-@RequestMapping(value = "/api/account")
+@RequestMapping(value = "/api/userAccount")
 public class UserRestController {
 	
 	@Autowired

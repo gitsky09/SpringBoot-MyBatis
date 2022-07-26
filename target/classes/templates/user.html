@@ -16,8 +16,8 @@
 
 	<div class="container">
 
-		<form th:action="@{/user}" id="userForm" th:object="${userObject}"
-			class="header" method="post">
+		<form id="userForm" th:action="@{/user}"  th:object="${userObject}"
+			class="header" method="POST" enctype="multipart/form-data" autocomplete="off">
 			<h1>成員資料表單</h1>
 			<hr>
 
@@ -65,7 +65,7 @@
 					<div class="form-floating">
 						<label>請確認密碼</label><input type="password" id="checkpassword"
 							class="form-control" placeholder="確認密碼"
-							th:field="*{checkPassword}"
+							maxlength="16" th:field="*{checkPassword}"
 							>
 					</div>
 				</div>
