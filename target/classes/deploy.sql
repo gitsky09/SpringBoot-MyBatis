@@ -1,7 +1,12 @@
+<<<<<<< HEAD
 /*
 DROP DATABASE IF EXISTS deploy;
 CREATE DATABASE deploy;
 */
+=======
+DROP DATABASE IF EXISTS deploy;
+CREATE DATABASE deploy;
+>>>>>>> 1ce3e1f1a27ad8c0584a04ae0f0cfb2a9eea455f
 
 USE deploy;
 
