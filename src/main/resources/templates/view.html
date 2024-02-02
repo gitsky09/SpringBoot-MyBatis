@@ -1,0 +1,23 @@
+
+<div class="container">
+
+	<!-- 成員table -->
+
+	<!-- class="table"對應自適應 -->
+	<table border="1" class="table">
+		<tr>
+			<th>成員姓名</th>
+			<th>成員帳號</th>
+			<th>成員電話</th>
+			<th>操作</th>
+		</tr>
+		<tr>
+		<tr th:each="i:${userlist}">
+			<td><span th:text="${i.name}"></span></td>
+			<td><span th:text="${i.account}"></span></td>
+			<td><span th:text="${i.phone}"></span></td>
+			<td><input type="button" value="修改"></td>
+		</tr>
+
+	</table>
+</div>

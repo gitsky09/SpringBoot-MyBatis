@@ -1,0 +1,38 @@
+<form id="groupForm" class="header" method="post" th:action="@{/group}" th:object="${groupobject}">
+	<h1>群組資料表單</h1>
+	<hr>
+
+	<!-- 第一列 -->
+	<div class="row">
+		<div class="col-sm-12">
+			<label>請輸入群組名稱</label> <input type="text" id="name" placeholder="群組名稱" th:field="*{name}"
+				class="form-control">
+		</div>
+	</div>
+
+	<hr>
+
+	<button type="submit" class="add">新增群組</button>
+
+</form>
+
+<br>
+
+<!-- table -->
+
+<!-- class="table"對應自適應 -->
+<table border="1" class="table">
+	<tr>
+		<th>群組名稱</th>
+		<th>操作</th>
+	</tr>
+	<tr>
+	<tr th:each="i:${grouplist}">
+		<td><span th:text="${i.name}"></span></td>
+		<td><input type="button" value="修改"></td>
+	</tr>
+
+</table>
+</div>
+
+<script th:src="@{/js/group.js}"></script>

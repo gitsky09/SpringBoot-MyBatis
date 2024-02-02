@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.deploy.demo.repository.UserMapper">
+	
+	<!-- 新增資料 -->
+	<insert id="save" parameterType="com.deploy.demo.entity.UserEntity" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO deploy_users
+        	( NAME, ACCOUNT, PASSWORD, SALT, PHONE, CREATE_TIME, CREATE_USER )
+        VALUES
+        	( #{name}, #{account}, #{password}, #{salt}, #{phone}, #{crDateTime}, #{crUser});
+    </insert>
+	
+	<!-- 查詢所有資料 -->
+	<select id="listUser" resultType="com.deploy.demo.entity.UserEntity">
+			SELECT
+				NAME, ACCOUNT, PHONE
+			FROM
+				deploy_users;
+	</select>
+	
+	<!-- 查詢使用者第一筆資料 -->
+	<select id="findByUserId" parameterType="int" resultType="com.deploy.demo.entity.UserEntity">
+			SELECT
+				*
+			FROM
+				deploy_users
+			WHERE
+				ID = #{id};
+	</select>
+	
+	<!-- 更新資料 -->
+	<update id="updateUser" parameterType="com.deploy.demo.entity.UserEntity">
+        	UPDATE
+        		deploy_users
+        	SET
+        		NAME = #{name},ACCOUNT = #{account},PASSWORD = #{password},SALT = #{salt},PHONE = #{phone},UPDATE_TIME = #{upDateTime}, UPDATE_USER = #{upUser} 
+        	WHERE
+        		ID = #{id};
+    </update>
+    
+    <!-- 查詢該帳號 -->
+    <select id="findByAccount" resultType="com.deploy.demo.entity.UserEntity">
+			SELECT
+				*
+			FROM
+				deploy_users
+			WHERE
+				ID = #{id};
+	</select>
+
+</mapper>

@@ -1,0 +1,41 @@
+<form id="authorityForm" class="header" method="post" th:object="${authorityobject}" th:action="@{/authority}"
+	enctype="multipart/form-data" autocomplete="off">
+	<h1>權限資料表單</h1>
+	<hr>
+
+	<!-- 第一列 -->
+	<div class="row">
+		<div class="col-sm-12">
+			<label>請輸入權限功能名稱</label> <input type="text" id="name" placeholder="權限功能名稱" th:field="*{name}"
+				class="form-control">
+		</div>
+	</div>
+
+	<hr>
+
+	<br>
+
+	<button type="submit" class="add">新增權限功能</button>
+
+</form>
+
+<br>
+
+<!-- table -->
+
+<!-- class="table"對應自適應 -->
+<table border="1" class="table">
+	<tr>
+		<th>權限功能名稱</th>
+		<th>操作</th>
+	</tr>
+	<tr>
+	<tr th:each="i:${authoritylist}">
+		<td><span th:text="${i.name}"></span></td>
+		<td><input type="button" value="修改"></td>
+	</tr>
+
+</table>
+</div>
+
+<script th:src="@{/js/authority.js}"></script>
