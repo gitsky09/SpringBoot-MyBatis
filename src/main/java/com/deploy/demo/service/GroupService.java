@@ -2,46 +2,17 @@ package com.deploy.demo.service;
 
 import java.util.List;
 
-import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-
 import com.deploy.demo.entity.GroupEntity;
-import com.deploy.demo.repository.GroupMapper;
 
-import lombok.RequiredArgsConstructor;
+public interface GroupService {
 
-@Service
-@RequiredArgsConstructor
-public class GroupService {
+	public int insertGroup(GroupEntity group);
 
-	final GroupMapper groupMapper;
+	public List<GroupEntity> listGroup();
 
-	@PostMapping("/group")
-	public int insertGroup(GroupEntity group) {
-		return groupMapper.insertGroup(group);
-	}
+	public GroupEntity getGroup(int id);
 
-	@GetMapping("/group")
-	public List<GroupEntity> listGroup() {
-		return groupMapper.listGroup();
-	}
+	public Integer updateGroup(GroupEntity group);
 
-	@GetMapping("/group")
-	public GroupEntity getGroup(int id) {
-		return groupMapper.findByGroupId(id);
-	}
-
-	@PutMapping("/group")
-	public Integer updateGroup(GroupEntity group) {
-		return groupMapper.updateGroup(group);
-	}
-
-	@DeleteMapping("/group")
-	public void deleteGroup(int id) {
-		groupMapper.deleteGroup(id);
-	}
-
+	public void deleteGroup(int id);
 }
