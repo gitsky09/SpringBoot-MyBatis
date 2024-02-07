@@ -24,11 +24,19 @@ public class MainController {
 	final GroupService groupService;
 	
 	/**
-	 * [登入後首頁]
+	 * 首頁
+	 */
+	@GetMapping("/")
+	public String home() {
+		return "index";
+	}
+	
+	/**
+	 * [登入後主頁]
 	 * @return 分配到main
 	 */
 	@GetMapping("/main")
-	String listSearchUser() {
+	public String loadMainPage() {
 		return "main";
 	}
 	
