@@ -23,7 +23,7 @@
 				<p class="form-control">announcement</p>
 			</div>
 			<div class="col-1" align="center">
-				<form action="/logout" method="post">
+				<form th:action="@{/logout}" method="post">
   					<button class="btn btn-primary" type="submit">logout</button>
 				</form>
 			</div>
@@ -165,5 +165,15 @@
 	}
 
 </script>
+
+<script>
+    window.onpageshow = function(event) {
+        // 如果是由於瀏覽器上一頁觸發的頁面顯示，將使用者導回登入頁面
+        if (event.persisted) {
+            window.location.reload();
+        }
+    };
+</script>
+
 
 </html>

@@ -46,11 +46,6 @@ public class UserController {
 		return userService.updateUser(user);
 	}
 	
-	@GetMapping("/login")
-	public String login(@ModelAttribute UserEntity user) {
-		return "login";
-	}
-	
 	@GetMapping("/register")
 	public String register(@ModelAttribute UserEntity userVo) {
 		return "register";

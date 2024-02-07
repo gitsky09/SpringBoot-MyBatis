@@ -20,7 +20,7 @@
 
 		<h1>成員登入</h1>
 
-		<form id="loginForm" method="POST" th:action="@{/login}" th:object="${userEntity}" enctype="multipart/form-data"
+		<form id="loginForm" method="POST" th:action="@{/userlogin}" th:object="${userEntity}" enctype="multipart/form-data"
 			autocomplete="off">
 			<input type="hidden" id="MESSAGE" th:value="${MESSAGE}" />
 
@@ -38,7 +38,9 @@
 						required />
 				</div>
 			</section>
-
+			<section>
+				<input type="checkbox" name="remember">記住我</input>
+			</section>
 			<button>登入</button>
 
 		</form>

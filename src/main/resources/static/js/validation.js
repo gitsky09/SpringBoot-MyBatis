@@ -21,7 +21,7 @@ function isValidPassword(password) {
 	// 確認欄位是否為空
     if(password == "") return {valid: false, message: "請輸入密碼"};
 	// 確認是否為指定密碼格式
-    if(!isPasswordFormat(password)) return {valid: false, message: "密碼必須為6~16為英文加數字"};
+    if(!isPasswordFormat(password)) return {valid: false, message: "密碼必須為6~16為大小寫英文加數字"};
 
 	return {valid: true};
 }
