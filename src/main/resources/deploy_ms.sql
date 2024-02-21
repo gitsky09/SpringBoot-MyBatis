@@ -31,11 +31,11 @@ GO
 -- 插入 deploy_users 測試數據
 INSERT INTO deploy_users (name, account) 
 VALUES 
-('小美', 'mei'),
-('小王', 'wang'),
-('小菜', 'cai'),
-('大明', 'ming'),
-('小瓜', 'gua');
+('小美', 'mei@mail.com'),
+('小王', 'wang@mail.com'),
+('小菜', 'cai@mail.com'),
+('大明', 'ming@mail.com'),
+('小瓜', 'gua@mail.com');
 SELECT * FROM deploy_users;
 
 -- 創建 deploy_authority 表

@@ -15,8 +15,8 @@ import com.deploy.demo.security.CustomAuthenticationProvider;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	// [自訂AuthenticationProvider]
-	@Autowired
-	private CustomAuthenticationProvider customAuthenticationProvider;
+//	@Autowired
+//	private CustomAuthenticationProvider customAuthenticationProvider;
 
 	/**
 	 * [管理請求URL的授權]部門主管能管理群組、經理能管理人員、資訊人員能管理權限
@@ -75,7 +75,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				
 		
 		//[使用自訂動態使用者驗證]
-		auth.authenticationProvider(customAuthenticationProvider);
+//		auth.authenticationProvider(customAuthenticationProvider);
 	}
 
 	@Bean
