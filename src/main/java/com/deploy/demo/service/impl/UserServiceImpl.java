@@ -8,7 +8,7 @@ import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
-import com.deploy.demo.entity.Permission;
+//import com.deploy.demo.entity.Permission;
 import com.deploy.demo.entity.UserEntity;
 import com.deploy.demo.repository.UserMapper;
 import com.deploy.demo.service.UserService;
@@ -66,9 +66,9 @@ public class UserServiceImpl implements UserService {
 		return userMapper.findByAccount(account);
 	}
 
-	@Override
-	public List<Permission> findPermissionByAccount(String account) {
-		return userMapper.findPermissionByAccount(account);
-	}
+//	@Override
+//	public List<Permission> findPermissionByAccount(String account) {
+//		return userMapper.findPermissionByAccount(account);
+//	}
 
 }

@@ -64,12 +64,6 @@
 			<optional>true</optional>
 		</dependency>
 
-		<!-- cache -->
-		<dependency>
-			<groupId>javax.cache</groupId>
-			<artifactId>cache-api</artifactId>
-		</dependency>
-
 		<!-- lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
