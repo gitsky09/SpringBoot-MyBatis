@@ -11,7 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 //import com.deploy.demo.security.CustomAuthenticationProvider;
 
-@EnableWebSecurity
+//@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	// [自訂AuthenticationProvider]

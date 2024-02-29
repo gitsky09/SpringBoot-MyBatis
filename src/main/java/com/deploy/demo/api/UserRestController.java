@@ -1,5 +1,7 @@
 package com.deploy.demo.api;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,7 +23,7 @@ public class UserRestController {
 	@RequestMapping(value = {"", "/"}, method = RequestMethod.GET)
 	public JsonResult<Boolean>checkUserAccountDuplicate(@RequestParam(value = "account") String account) {
 		
-		UserEntity result = userService.findByAccount(account);
+		Optional<UserEntity> result = userService.findByAccount(account);
 		
 		return new JsonResult<Boolean>(HttpState.SUCCESS.getState(), result != null ? true : false);
 	}

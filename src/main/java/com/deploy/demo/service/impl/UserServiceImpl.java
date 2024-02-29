@@ -1,6 +1,7 @@
 package com.deploy.demo.service.impl;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,7 +63,7 @@ public class UserServiceImpl implements UserService {
 	 */
 	@Cacheable(value = {"emp"} , condition = "#a1 == chad@mail.com" ,unless = "#a1 == zac@mail.com")
 	@Override
-	public UserEntity findByAccount(String account) {
+	public Optional<UserEntity> findByAccount(String account) {
 		return userMapper.findByAccount(account);
 	}
 

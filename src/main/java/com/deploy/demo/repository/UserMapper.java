@@ -1,6 +1,7 @@
 package com.deploy.demo.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
@@ -24,6 +25,6 @@ public interface UserMapper {
 	public Integer updateUser(UserEntity user);
 	
 	@Select("SELECT * FROM deploy_users WHERE ACCOUNT = #{account}")
-	UserEntity findByAccount(String account);
+	Optional<UserEntity> findByAccount(String account);
 	
 }

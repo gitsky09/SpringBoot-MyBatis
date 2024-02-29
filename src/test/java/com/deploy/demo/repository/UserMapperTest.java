@@ -2,6 +2,7 @@ package com.deploy.demo.repository;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.junit.jupiter.api.Test;
@@ -80,8 +81,8 @@ class UserMapperTest {
 	@Test
 	void selectAccount() {
 		
-		UserEntity currentUser =  userMapper.findByAccount("test");
-		if(currentUser == null)
+		Optional<UserEntity> currentUser =  userMapper.findByAccount("test");
+		if(!currentUser.isPresent())
 			System.out.println("無此帳號");
 		else
 			System.out.println("selectAccount():" + currentUser.toString());
