@@ -4,7 +4,7 @@ import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.deploy.demo.CustomKeyGenerator;
+import com.deploy.demo.catche.CustomKeyGenerator;
 
 @Configuration
 public class CacheConfig {

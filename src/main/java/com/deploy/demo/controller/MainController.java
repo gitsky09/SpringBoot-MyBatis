@@ -6,7 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.deploy.demo.entity.UserEntity;
+import com.deploy.demo.core.dto.Permission;
+//import com.deploy.demo.security.CustomAuthenticationProvider;
 import com.deploy.demo.service.GroupService;
 import com.deploy.demo.service.UserService;
 import com.deploy.demo.service.AuthorityService;
@@ -22,6 +23,8 @@ public class MainController {
 	final AuthorityService authorityService;
 	
 	final GroupService groupService;
+	
+//	final CustomAuthenticationProvider loginService;
 	
 	/**
 	 * 首頁
@@ -55,8 +58,13 @@ public class MainController {
 	 * @return 分配到login
 	 */
 	@GetMapping("/userlogin")
-	public String login(@ModelAttribute UserEntity user) {
+	public String login(@ModelAttribute Permission user) {
 		return "login";
+	}
+	
+	@PostMapping("/userlogin")
+	public String successLogin(@ModelAttribute Permission user) {
+	    return "main";
 	}
 	
 	/**
@@ -67,6 +75,13 @@ public class MainController {
 	public String logout() {
 		return "information";
 	}
+	
+	// Login form with error
+	  @GetMapping("/login-error")
+	  public String loginError(Model model) {
+	    model.addAttribute("loginError", true);
+	    return "login";
+	  }
 	
 	/**
 	 * [棄用 跳轉結構]

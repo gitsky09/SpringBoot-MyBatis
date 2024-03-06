@@ -20,14 +20,14 @@
 
 		<h1>成員登入</h1>
 
-		<form id="loginForm" method="POST" th:action="@{/userlogin}" th:object="${userEntity}" enctype="multipart/form-data"
+		<form id="loginForm" method="POST" th:action="@{/userlogin}" th:object="${permission}" enctype="multipart/form-data"
 			autocomplete="off">
 			<input type="hidden" id="MESSAGE" th:value="${MESSAGE}" />
 
 			<section class="form-input">
 				<label>帳號/E-Mail</label>
 				<div class="input-area">
-					<input type="email" id="account" th:field="*{account}" maxlength="40" placeholder="請輸入郵件地址"
+					<input type="email" id="account" th:field="*{username}" maxlength="40" placeholder="請輸入郵件地址"
 						required />
 				</div>
 			</section>
