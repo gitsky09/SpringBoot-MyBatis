@@ -4,23 +4,18 @@
 <head>
 	<meta charset="UTF-8">
 	<title>登入頁面</title>
-
-	<head th:insert="load/js :: js"></head>
 	<link rel="stylesheet" th:href="@{/css/login.css}">
 
 </head>
-
-
-
-
 <body>
 
+	<div th:insert="load/js :: js"></div>
 
 	<main>
 
 		<h1>成員登入</h1>
 
-		<form id="loginForm" method="POST" th:action="@{/userlogin}" th:object="${permission}" enctype="multipart/form-data"
+		<form id="loginForm" method="POST" th:action="@{/security/login}" th:object="${permission}" enctype="multipart/form-data"
 			autocomplete="off">
 			<input type="hidden" id="MESSAGE" th:value="${MESSAGE}" />
 

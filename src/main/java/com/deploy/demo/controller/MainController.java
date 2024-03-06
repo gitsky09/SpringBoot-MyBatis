@@ -62,7 +62,7 @@ public class MainController {
 		return "login";
 	}
 	
-	@PostMapping("/userlogin")
+	@PostMapping("/security/login")
 	public String successLogin(@ModelAttribute Permission user) {
 	    return "main";
 	}

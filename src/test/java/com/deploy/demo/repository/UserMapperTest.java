@@ -8,6 +8,7 @@ import java.util.UUID;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.deploy.demo.entity.UserEntity;
 
@@ -16,13 +17,15 @@ class UserMapperTest {
 
 	@Autowired
 	private UserMapper userMapper;
+	
+	BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
 	@Test
 	void save() {
 		UserEntity user = new UserEntity();
 		user.setName("username");
 		user.setAccount("test");
-		user.setPassword("123");
+		user.setPassword(encoder.encode("123"));
 		
 		String salt= UUID.randomUUID().toString().toUpperCase().replaceAll("-", "");
 		user.setSalt(salt);
@@ -61,15 +64,15 @@ class UserMapperTest {
 	@Test
 	void updateUser() {
 
-		int id = 1;
+		int id = 7;
 		UserEntity currentUser = userMapper.findByUserId(id);
 
 		if (currentUser != null) {
-			currentUser.setName("newname");
-			currentUser.setAccount("newaccount");
-			currentUser.setPassword("newpassword");
+			currentUser.setName("zac");
+//			currentUser.setAccount("zac@mail.com");
+			currentUser.setPassword(encoder.encode("Test1234"));
 			currentUser.setUpDateTime(LocalDateTime.now());
-			currentUser.setUpUser("newupuser");
+			currentUser.setUpUser("zac");
 
 			Integer result = userMapper.updateUser(currentUser);
 			System.out.println("updateUser():" + result);

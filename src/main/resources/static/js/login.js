@@ -21,5 +21,8 @@ $(() => {
             $("#password").focus();
             return false;
         }
+        
+         // 所有驗證通過，返回 true
+    	return true;
 	}
 })

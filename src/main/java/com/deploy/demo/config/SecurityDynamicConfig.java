@@ -9,19 +9,21 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
 import com.deploy.demo.security.CustomAuthenticationProvider;
+import com.deploy.demo.security.UserLoginService;
 
 @Configuration
+@EnableWebSecurity
 public class SecurityDynamicConfig extends WebSecurityConfigurerAdapter{
 
 	@Autowired
-	private UserDetailsService userLoginService;
+	private UserLoginService userLoginService;
 	
 	@Autowired
 	@Lazy
@@ -51,15 +53,14 @@ public class SecurityDynamicConfig extends WebSecurityConfigurerAdapter{
 //			.successHandler(yourCustomSuccessHandler)
 //            .failureHandler(yourCustomFailureHandler)
 //			.usernameParameter("account")
-			.loginProcessingUrl("/user/login") //security會自動配置
-			.defaultSuccessUrl("/main").permitAll()
+			.loginProcessingUrl("/security/login") //security會自動配置
+			.defaultSuccessUrl("/main")
 			.and().authorizeRequests()
 				.antMatchers("/","/userlogin","/css/**").permitAll()
 				.antMatchers("/authority").hasAuthority("admin")
 				.antMatchers("/group","user").hasAnyRole("supervisor","admin")
 			.anyRequest().authenticated();
 //			.and().csrf().disable();
-		
 		
 		http.logout()
         .logoutUrl("/logout") // 指定登出URL
