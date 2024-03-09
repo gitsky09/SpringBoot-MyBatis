@@ -17,7 +17,7 @@ BEGIN
         id INT IDENTITY(1,1) PRIMARY KEY,
         name VARCHAR(30),
         account VARCHAR(40) UNIQUE,
-        password VARCHAR(40),
+        password VARCHAR(60),
         salt VARCHAR(40),
         phone VARCHAR(20),
         create_time DATETIME,
