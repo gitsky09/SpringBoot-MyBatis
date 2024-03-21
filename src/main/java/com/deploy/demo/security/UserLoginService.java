@@ -26,7 +26,7 @@ public class UserLoginService implements UserDetailsService{
 		
 		Optional<UserEntity> user = userMapper.findByAccount(username);
 		System.out.println(user.get().getAccount()+":"+user.get().getPassword());
-		List<GrantedAuthority> authorities = AuthorityUtils.commaSeparatedStringToAuthorityList("admin");
+		List<GrantedAuthority> authorities = AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_admin");
 		Permission tag = new Permission();
 		
 		if(user.isPresent()) {

@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -56,9 +57,9 @@ public class SecurityDynamicConfig extends WebSecurityConfigurerAdapter{
 			.loginProcessingUrl("/security/login") //security會自動配置
 			.defaultSuccessUrl("/main")
 			.and().authorizeRequests()
-				.antMatchers("/","/userlogin","/css/**").permitAll()
-				.antMatchers("/authority").hasAuthority("admin")
-				.antMatchers("/group","user").hasAnyRole("supervisor","admin")
+				.antMatchers("/","/userlogin").permitAll()
+				.antMatchers("/authority").hasAuthority("ROLE_admin")
+				.antMatchers("/group","/user").hasAnyRole("supervisor","admin")
 			.anyRequest().authenticated();
 //			.and().csrf().disable();
 		
@@ -66,6 +67,14 @@ public class SecurityDynamicConfig extends WebSecurityConfigurerAdapter{
         .logoutUrl("/logout") // 指定登出URL
         .permitAll();
 	}
+	
+	@Override
+    public void configure(WebSecurity web) throws Exception {
+		//設置靜態資源
+        web
+           .ignoring()
+           .antMatchers("/resources/**", "/static/**", "/css/**", "/js/**");
+    }
 
 	@Bean
 	BCryptPasswordEncoder passwordEncoder() {

@@ -64,12 +64,12 @@ class UserMapperTest {
 	@Test
 	void updateUser() {
 
-		int id = 7;
+		int id = 6;
 		UserEntity currentUser = userMapper.findByUserId(id);
 
 		if (currentUser != null) {
 			currentUser.setName("zac");
-//			currentUser.setAccount("zac@mail.com");
+			currentUser.setAccount("zac@mail.com");
 			currentUser.setPassword(encoder.encode("Test1234"));
 			currentUser.setUpDateTime(LocalDateTime.now());
 			currentUser.setUpUser("zac");
